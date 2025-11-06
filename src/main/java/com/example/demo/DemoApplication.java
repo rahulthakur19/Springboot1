@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.example.demo.model.Student;
+import com.example.demo.service.StudentService;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -15,7 +16,9 @@ public class DemoApplication {
 		student.setRollNo(1);
 		student.setName("John Doe");
 		student.setMarks(95);
-		System.out.println(student);
+		
+		StudentService service = context.getBean(StudentService.class);
+		service.addStudent(student);
 	}
 
 }
